@@ -32,7 +32,21 @@ document.querySelector('.check').addEventListener('click', function () {
                 highScore = score;
                 document.querySelector(`.highscore`).textContent = highScore;
             }
-        }else if (guess > number){
+        }else if (guess !== number){
+            if (score == 1){
+                //If score is one and still guess the wrong number
+                score--;
+                document.querySelector('.message').textContent = '😢You lost the game'
+                document.querySelector('.score').textContent = score;
+            }else{
+                document.querySelector('.message').textContent = guess > number ? '❌Number too high!' : '❌Number too low!';
+                score--;
+                document.querySelector('.score').textContent = score;
+            }
+
+        }
+        //combind 
+        /*else if (guess > number){
             //when guess number lager than number.
             if (score == 1){
                 //If score is one and still guess the wrong number
@@ -56,7 +70,7 @@ document.querySelector('.check').addEventListener('click', function () {
                 document.querySelector('.message').textContent = '❌Number too low!'
                 document.querySelector('.score').textContent = score;
             }
-        }
+        }*/
     }
 })
 
